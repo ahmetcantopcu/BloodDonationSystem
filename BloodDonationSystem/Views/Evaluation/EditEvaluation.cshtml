@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.Evaluation
+@{
+    ViewData["Title"] = "EditEvaluation";
+    Layout = "~/Views/Shared/DonorLayout.cshtml";
+}
+
+<h1>Edit Evaluations</h1>
+<br />
+@using (Html.BeginForm("EditEvaluation", "Evaluation", FormMethod.Post))
+{
+    @Html.Label("Evaluation Id")
+    @Html.TextBoxFor(x => x.EvaluationID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Evaluation Title")
+    @Html.TextBoxFor(x => x.EvaluationTitle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Evaluation Thumbnail Url")
+    @Html.TextBoxFor(x => x.EvaluationThumbNailImage, new { @class = "form-control" })
+    <br />
+    @Html.Label("Evaluation Image")
+    @Html.TextBoxFor(x => x.EvaluationImage, new { @class = "form-control" })
+    <br />
+    @Html.Label("Evaluation Content")
+    @Html.TextAreaFor(x => x.EvaluationContent,10,3, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Update</button>
+}
+

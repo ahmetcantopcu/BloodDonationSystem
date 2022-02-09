@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.Donor
+@{
+    ViewData["Title"] = "DonorEditProfile";
+    Layout = "~/Views/Shared/DonorLayout.cshtml";
+}
+
+@using (Html.BeginForm("DonorEditProfile", "Donor", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Donor Editing Profile</h4>
+                <br />
+                @Html.HiddenFor(x => x.DonorID, new { @class = "form-control" })
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Donor Name Surname</label>
+                        @Html.TextBoxFor(x => x.DonorName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        @Html.TextBoxFor(x => x.DonorMail, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        @Html.PasswordFor(x => x.DonorPassword, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Donor Image </label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-gradient-primary" type="button">Select Image</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">Donor About</label>
+                        @Html.TextAreaFor(x => x.DonorAbout, 10, 3, new { @class = "form-control" })
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
+                    <button class="btn btn-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+}
+
+

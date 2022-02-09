@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.Evaluation
+@{
+    ViewData["Title"] = "EvaluationAdd";
+    Layout = "~/Views/Shared/DonorLayout.cshtml";
+}
+
+<h1>Create New Blog</h1>
+<br />
+
+@using (Html.BeginForm("EvaluationAdd", "Evaluation", FormMethod.Post))
+{
+    @Html.Label("Blog Title:")
+    @Html.TextBoxFor(x => x.EvaluationTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.EvaluationTitle)
+    <br />
+    @Html.Label("Blog Image:")
+    @Html.TextBoxFor(x => x.EvaluationImage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.EvaluationImage)
+    <br />
+    @Html.Label("Blog ThumbNail:")
+    @Html.TextBoxFor(x => x.EvaluationThumbNailImage, new { @class = "form-control" })
+    <br />
+    @Html.Label("Blog Content:")
+    @Html.TextAreaFor(x => x.EvaluationContent, 12, 3, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.EvaluationContent)
+    <br />
+    <button class="btn btn-info">Save</button>
+}

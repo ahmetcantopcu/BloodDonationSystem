@@ -1,0 +1,61 @@
+﻿@model EntityLayer.Concrete.Donor
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <h3 class="tittle">Register Now</h3>
+        <div class="inner-sec">
+            <div class="login p-5 bg-light mx-auto mw-100">
+                @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+                {
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Name Surname:</label>
+                            @Html.TextBoxFor(x=>x.DonorName,new {@class="form-control"})
+                            @Html.ValidationMessageFor(x=>x.DonorName,"",new {@class="text-danger"})                           
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">E-mail Address:</label>
+                            @Html.TextBoxFor(x => x.DonorMail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.DonorMail, "", new { @class = "text-danger" })
+                        </div>              
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword1 mb-2">Password:</label>
+                            @Html.TextBoxFor(x => x.DonorPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.DonorPassword, "", new { @class = "text-danger" })                       
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword2 mb-2">Image:</label>
+                            @Html.TextBoxFor(x => x.DonorImage, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.DonorImage, "", new { @class = "text-danger" })                          
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary submit mb-4">Register</button>
+                    <p>
+                        <a href="#" id="btn1">I accept the rules.</a>
+                    </p>
+                }
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <script>
+        $('#btn1').click(function () {
+            swal("Terms of Use","Information and news e-mails will continue to be sent via the e-mail address you provide on our site. If you want to unsubscribe from the e-mail newsletter, you can stop the e-mail message series. Your passwords and e-mail addresses are stored in our databases in an encrypted format so that no user can see them.");
+        });
+    </script>
+</section>
+

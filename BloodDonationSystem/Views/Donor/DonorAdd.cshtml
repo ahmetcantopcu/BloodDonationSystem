@@ -1,0 +1,42 @@
+﻿@model BloodDonationSystem.Models.AddProfileImage
+@{
+    ViewData["Title"] = "DonorAdd";
+    Layout = "~/Views/Shared/DonorLayout.cshtml";
+}
+
+<form class="form-group" method="post" enctype="multipart/form-data">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Donor Editing Profile</h4>
+                <br />
+                @Html.HiddenFor(x => x.DonorID, new { @class = "form-control" })
+                <div class="forms-sample">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Donor Name Surname</label>
+                        @Html.TextBoxFor(x => x.DonorName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        @Html.TextBoxFor(x => x.DonorMail, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        @Html.PasswordFor(x => x.DonorPassword, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Donor Image </label>
+                        <input type="file" name="DonorImage"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">Donor About</label>
+                        @Html.TextAreaFor(x => x.DonorAbout, 10, 3, new { @class = "form-control" })
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Save</button>
+                    <button class="btn btn-light">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

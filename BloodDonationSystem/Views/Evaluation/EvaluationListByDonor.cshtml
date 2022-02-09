@@ -1,0 +1,31 @@
+﻿@using EntityLayer.Concrete
+@model List<Evaluation>
+@{
+    ViewData["Title"] = "EvaluationListByDonor";
+    Layout = "~/Views/Shared/DonorLayout.cshtml";
+}
+
+<h1>Donor's Evaluations'</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Evaluaiton Title</th>
+        <th>Date</th>
+        <th>State</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>   
+    @foreach(var item in Model)
+            {
+<tr>
+    <td>@item.EvaluationID</td>
+    <td>@item.EvaluationTitle</td>
+    <td> @(((DateTime)item.EvaluationCreateDate).ToString("dd-MMM-yyyy"))</td>
+    <td>@item.EvaluationStatus</td>
+    <td><a href="/Evaluation/DeleteEvaluation/@item.EvaluationID" class="btn btn-danger">Delete</a></td>
+    <td><a href="/Evaluation/EditEvaluation/@item.EvaluationID" class="btn btn-warning">Edit</a></td>
+</tr>
+            }
+</table>
+<a href="/Evaluation/EvaluationAdd" class="btn btn-info">Create New Evaluation</a>
+

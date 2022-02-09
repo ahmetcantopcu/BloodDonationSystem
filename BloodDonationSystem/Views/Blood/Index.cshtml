@@ -1,0 +1,21 @@
+﻿@using EntityLayer.Concrete
+@model List<Blood> 
+@{
+    Layout = null;
+}
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Stock</th>
+    </tr>
+    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.BloodID</td>
+                    <td>@item.BloodType</td>
+                    <td>@item.BloodStock</td>
+                </tr>
+            }
+</table>

@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{ 
+    string fullname = Context.Session.GetString("fullname");
+}
+ 
+<div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
+    <span>Welcome, @fullname </span>
+    <span class="mx-lg-4 mx-md-2  mx-1">
+        <a href="/Login/Index/">
+            <font class="fas fa-lock" color="#FF0000"></font> Sign In
+        </a>
+    </span>
+    <span class="mx-lg-4 mx-md-2  mx-1">
+        <a href="/Dashboard/Index/">
+            <font class="fas fa-lock" color="#FF0000"></font> My Profile
+        </a>
+    </span>
+    <span>
+        <a href="/Register/Index/">
+            <font class="fas fa-lock" color="#FF0000"></font> Sign Up
+        </a>
+    </span>
+</div>
